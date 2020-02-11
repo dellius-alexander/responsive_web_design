@@ -1,0 +1,645 @@
+/*-- The "body" element contains all the content displayed on a webpage, using "body" as the selector sets the background color of the entire webpage. --*/
+body	{
+	background: -moz-linear-gradient(#07F7E7, #170B3B); /*-- Firefox --*/
+	background: -o-linear-gradient(#07F7E7, #170B3B); /*-- Opera --*/
+	background: -webkit-linear-gradient(#07F7E7, #170B3B); /*-- Chrome, Safari --*/
+	background: linear-gradient(#07F7E7, #170B3B); 
+	background-attachment: fixed;
+	margin:0;
+	padding:0;
+}
+
+
+
+
+/*-- style to create a fluid image --*/
+img	{
+max-width: 100%;
+
+}
+/*-- The following declaration specifies the width of the "div id="container" section as 80% of the page adn sets the left and right margins to "auto," centering all of the content in the section." --*/		
+#container	{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		
+}
+
+/*-- This rule uses "header" as the selector and lists a few declaration to format the header element in the webpage. --*/
+header	{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding-top: 2em;
+	padding-bottom:2em;
+	background-color: #FFFFFF;
+	border-radius: 2em;
+	border-top: 0.5em solid #A4A4A4;
+	border-bottom: 0.5em solid #A4A4A4;
+	box-shadow: 2em 2em 100em;
+	text-align: center;
+	opacity: 0.65;
+	
+}
+
+/*-- This rule modifies the anchor "a" element which contains the logo and company title hyperlink. --*/
+header a	{
+		color: #0000FF   ;
+		font-weight: bold;
+		text-decoration: none;
+		font-size: 2.0em;
+			
+		
+		}
+
+
+nav	{
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.0em;
+font-weight: bold;
+text-align: center;
+padding-top: 1em;
+padding-bottom: 1em;
+margin-top: 1.5em;
+margin-bottom: 0.5em;
+
+}
+
+/*-- style specifies padding and margins for unordered list --*/
+nav ul {
+	padding: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	
+	
+}
+
+/*-- style specifies the background color, rounded corners, removes bullet style, and applies margins and padding for list items within the navigation --*/
+nav li {
+	background-color: #170B3B;
+	border-radius: 1em;
+	list-style-type: none;
+	margin: 0.3em;
+	padding: 0.4em;
+	box-shadow: 2em 2em 100em #FFFFFF;
+	
+	
+}
+
+
+nav li a	{
+	color: #FFFFFF;
+	text-decoration: none;
+	
+}
+
+
+main	{
+	display: block;
+	font-family: Georgia, "Times New Roman", sans-serif;
+	font-size: 1.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 1em;
+	border-radius: 1em 0 1em 0;
+	background-color: #FFFFFF;
+	border-top: 0.5em solid #A4A4A4;
+	border-bottom: 0.5em solid #A4A4A4;
+	
+	
+}
+
+
+
+/*-- style for footer element container --*/
+footer	{
+	font-size: 1em;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 3em;
+}
+
+/*-- style for anchor element within the footer --*/
+footer a 	{
+		color: #FFFFFF;
+		text-decoration: none;
+}
+
+
+
+
+/*-- Style rule to display the mobile class. --*/
+.mobile	{
+	display: inline;
+}
+
+/*-- Style rule to hide the tablet class. --*/
+.tablet	{
+		display: none;
+}
+
+/*-- Style rule to hide the desktop class. --*/
+.desktop	{
+		display: none;
+}
+
+/*-- style rule for input, select, and testarea form elements to appear on its own line --*/
+input, select, textarea	{
+					display: block;
+					margin-bottom: 1em;
+}
+
+
+
+/*-- style rule for label element to display labels on a separate line --*/
+label	{
+	display: block;
+}
+
+/*-- style rule for unordered list within a form to remove bullets --*/
+form ul 	{
+		  list-style-type: none;
+}
+
+/*-- style rule for chkbx class that displays element inline while retaining their block element characteristics; each check box appears on its own line but allows the list item text to appear to its right. --*/
+.chkbx	{
+	display: inline-block;
+}
+
+figure	{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	
+}
+
+
+
+/* style rule for the video element */
+video	{
+	border: 5px #FFFFFF;
+	height: auto;
+	max-width: 100%;
+}
+
+
+.input	{
+width: 100%;
+}
+
+/* style rule fo the copyright div	*/
+#copyright	{
+		float: left;
+		margin-top: 2em;
+		width: 80%;
+}
+
+/* style rule for social div  */
+#social	{
+	float: right;
+	width:20%;
+}
+
+/* style rule for social media icons  */
+#social img{  
+		padding: 0.5em;
+}
+
+
+
+/*-- media query for tablet viewport targets screen size with a minimum width of 1080px --*/
+@media only screen and (min-width: 718px)	{
+
+img	{
+max-width: 100%;
+}
+
+/* fancybox image style */
+.img    {
+	border: #000000;
+	box-shadow: 0 0px 8px #000000;
+	max-width: 100% ;
+	height: auto;    
+	} 
+/* fancybox image hover style */	
+.img:hover   {
+	position: relative; z-index: 999; -o-transform: scale(1.03,1.15); -ms-transform: scale(1.03,1.15); -moz-transform: scale(1.03,1.15); -webkit-transform: scale(1.03,1.15); transform: scale(1.03,1.15);
+	} 
+
+
+nav	{
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.15vw;
+font-weight: bold;
+text-align: center;
+padding-top: 1em;
+padding-bottom: 1em;
+margin-top: 1.5em;
+margin-bottom: 0.5em;
+width: 100%;
+
+
+}
+
+/*-- style specifies padding and margins for unordered list --*/
+nav ul {
+	display: block;
+	padding: 0;
+	margin: auto;
+	width: 100%;
+	
+
+	
+	
+}
+
+/*-- style specificies a horizontal display for navigation links --*/
+nav li 	{
+	display: inline;
+	margin-left: 1%;
+	margin-right: 1%;
+	border-radius: 2em;
+	padding: 1em;
+	white-space: nowrap;
+	
+	
+	
+	
+}
+
+nav li a	{
+color: #FFFFFF;
+text-decoration: none;
+width: 100%;
+
+font-size: 2.5vw;
+
+}
+
+/*-- style specifies clear and top margin properties for the main element --*/
+main	{
+	clear: left;
+	margin-top: 1em;
+	font-size: 2.5em;
+}
+
+
+
+
+footer	{
+	font-size: 1.5em;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 3em;
+}
+
+
+body	{
+	background: -moz-linear-gradient(#07F7E7, #170B3B); /*-- Firefox --*/
+	background: -o-linear-gradient(#07F7E7, #170B3B); /*-- Opera --*/
+	background: -webkit-linear-gradient(#07F7E7, #170B3B); /*-- Chrome, Safari --*/
+	background: linear-gradient(#07F7E7, #170B3B); 
+	background-attachment: fixed;
+}
+
+/*-- style specifies to hide mobile class --*/
+.mobile	{
+	display: none;
+}
+
+/*--style specifies to hide desktop class --*/
+.desktop{
+	display: none;
+}
+
+/*-- style specifies a display, float and padding for the home class --*/
+
+
+/*-- style specifies a display, list style position, and bottom margin for the list2 class --*/
+.list2 {
+	display: block;
+	list-style-position: inside;
+	margin-bottom: 5em;
+}
+
+/*=- style specifies to display the tablet class --*/
+.tablet{
+	display: block;
+}
+
+/*-- style specifies a font weight and top margin for description list terms --*/
+dt	{
+font-weight: bold;
+margin-top: 0.7em;
+}
+
+	#container4	{
+			background-color: #FFFFFF;
+			display: inline-block;
+			width: 98%;
+			height: auto;
+			margin: 0 auto;
+			padding: 10px 10px 10px 10px;
+			text-align: justify;
+	}
+	
+	#section1	{
+				background-color: #170B3B;
+				width: 90%;
+				height: auto;
+				margin: 0 auto;
+				color: #FFFFFF;
+				padding: 1em 1em 1em 1em;
+				text-align: left;
+				border-radius: 1em 0 1em 0;
+			}
+
+	#section2	{
+				background-color: #170B3B;
+				width: 90%;
+				height: auto;
+				margin: 0 auto;
+				color: #FFFFFF;
+				padding: 1em 1em 1em 1em;
+				text-align: left;
+				border-radius: 1em 0 1em 0;
+			}
+	
+	#section3	{
+				background-color: #170B3B;
+				width: 90%;
+				height: auto;
+				margin: 0 auto;
+				color: #FFFFFF;
+				padding: 1em 1em 1em 1em;
+				text-align: left;
+				border-radius: 1em 0 1em 0;
+			}	
+
+/*-- style rule for label element --*/
+label	{
+	display: inline;
+	padding-right: 0.5em;
+	text-align: left;
+}
+
+/*-- style rule for btn class --*/
+.btn	{
+	margin-left: 5em;
+}
+
+/*-- style rule for chkbx class --*/
+.chkbx	{
+	display: inline-block;
+}
+
+/*-- style rule for input class --*/
+.input	{
+	width: 100%;
+}
+
+}
+
+/*-- Media query for desktop viewport targets screens with a minimum width of  1440px. --*/
+@media only screen and  (min-width: 1080px)	{
+
+/*-- style to create a fluid image --*/
+img	{
+max-width: 100%;
+height: auto;
+background-color: #FFFFFF;
+
+}
+
+
+/* fancybox image style */
+.img    {
+	
+	box-shadow: 0 0px 8px #000000;
+	max-width: 100% ;
+	height: auto;    
+	} 
+/* fancybox image hover style */	
+.img:hover   {
+	position: relative; z-index: 999; -o-transform: scale(1.03,1.15); -ms-transform: scale(1.03,1.15); -moz-transform: scale(1.03,1.15); -webkit-transform: scale(1.03,1.15); transform: scale(1.03,1.15);
+	} 		
+
+/*-- style specifies a width for container --*/
+#container	{
+		width: 75%;
+}
+
+/*-- style specifies to hide mobile class --*/
+.mobile	{
+	display: none;
+}
+
+/*-- Style rule to hide the tablet class. --*/
+.tablet	{
+	display: none;
+}
+
+
+/*--style specifies to display desktop class --*/
+.desktop{
+	display: block;
+}
+
+nav	{
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.15vw;
+font-weight: bold;
+text-align: center;
+padding-top: 1em;
+padding-bottom: 1em;
+margin-top: 1.5em;
+margin-bottom: 0.5em;
+width: 100%;
+
+
+}
+
+/*-- style specifies margin and padding for the unordered list within the nav --*/
+nav ul	{
+	display:inline;
+	margin: 0;
+	padding-left: 0.5%;
+	padding-right: 0.5%;
+	max-width: 100%;
+	
+	
+}
+
+/*-- style for navigation list items specifies a border radius, border, margin, width adn padding --*/
+nav li	{
+	
+	display: inline;
+	border-radius: 0em;
+	border-top: solid #000000;
+	border-bottom: solid #000000;
+	margin-left: 0em;
+	margin-right: 0em;
+	padding: 0.55em;
+	white-space: nowrap;
+			
+	
+}		
+
+/*-- style for navigation links specifies display and padding --*/
+nav li a	{
+		
+		padding: 0.7em;
+		font-size: 2vw;
+		
+		
+}
+
+/*-- style rules for pseudo-classes --*/
+nav li a:link	{
+			color: #FFFFFF;
+}
+
+nav li a:visited	{
+				color: #2EFEF7;
+}
+
+nav li a:hover	{
+			color: #FFFF00;
+			font-style: italic;
+}
+
+/*-- style specifies border, box shadow, and margins for the main element --*/
+main	{
+	border-style: solid;
+	border-radius: 1em;
+	background-color: #FFFFFF;
+	border-top: 0.5em solid #A4A4A4;
+	border-bottom: 0.5em solid #A4A4A4;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-size: 2em;
+	
+}
+
+/*-- style specifies left and right padding for paragraph elements within main element --*/
+main p	{
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+footer	{
+	font-size: 2.0em;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 2em;
+	overflow: auto;
+}
+
+
+/*-- style species a gradient for the body element --*/
+body	{
+	background: -moz-linear-gradient(#07F7E7, #170B3B); /*-- Firefox --*/
+	background: -o-linear-gradient(#07F7E7, #170B3B); /*-- Opera --*/
+	background: -webkit-linear-gradient(#07F7E7, #170B3B); /*-- Chrome, Safari --*/
+	background: linear-gradient(#07F7E7, #170B3B); 
+	background-attachment: fixed; 
+
+		
+}
+
+	#container3	{
+				background-color: #FFFFFF;
+				display: block;
+				width: auto;
+				height: 100%;
+				margin: auto;
+				padding: 10px 10px 10px 10px;
+				text-align: justify;
+				opacity: 1;
+			}		
+	
+			
+	.flex-container	{
+				background-color: #FFFFFF;
+				display: flex;
+				width: auto;
+				justify-content: center;
+				padding: 10px 10px 10px 10px;
+				text-align: center;
+}
+
+	.flex-container > div	{
+				background-color: #170B3B;
+				width: 100%;
+				margin: 10px;
+				color: #FFFFFF;
+				padding: 1.5em 0.25em 0.25em 0.25em;
+				text-align: center;
+				border-radius: 1em;
+				border-style: ridge;
+				
+			}
+	
+
+	
+			
+
+
+figure	{
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+figure img	{
+		display: inline-block;
+		margin: auto;
+		padding: 0.5em;
+		width: 25%;			
+		height: auto;
+
+		
+}
+
+figure video	{
+		margin: auto;
+		width: 100%;
+		height: auto;
+		
+}
+
+.abt-desk	{
+						display:flex;				
+						justify-content: center;
+					 	align-items: center; 
+					 	background-color:#170B3B; 
+						padding: 10px;
+						border-radius: 1em; 
+						border-style: ridge;
+						}
+
+
+figure figcaption	{
+				color: #170B3B;
+				display: block;
+				font-weight: bolder;
+				font-size: 1.5em; 
+				text-align: center;
+				margin: 1.5em;
+}		
+
+/*-- style rule for form element --*/
+form	{
+	padding: 2em;
+}
+
+/* hyperlink hover style rule */
+a.hyperlink:hover, a.hyperlink:active	{ 
+										font-size: 125%
+									}	
+
+			
+}
+
