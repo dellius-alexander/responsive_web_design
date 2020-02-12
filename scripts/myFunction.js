@@ -8,7 +8,7 @@ function tyAlert()  {
 
 // Savant demo video open in new browser window
 function demo() {
-    window.open("/media/Savant-Large-Black.mp4", "_blank", "width=610, height=360");
+    window.open("media/Savant-Large-Black.mp4", "_blank", "width=610, height=360");
 }
 
 $(function () {
