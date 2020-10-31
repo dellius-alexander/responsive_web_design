@@ -1,3 +1,6 @@
+
+![LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png)
+
 # responsive_web_design
 
 ## Website Demo URL: 
@@ -54,7 +57,3 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 ```
 ---
-
-<div id="map">
-			<iframe src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png" style="width: 100%; height: 20em; align-content: center;"></iframe>
-		</div >
