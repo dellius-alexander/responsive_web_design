@@ -14,7 +14,7 @@
 ## Docker Build Command
 ---
 ---
-| **Description** | **Command**|
+|  **Description** |  **Command**  |
 |:---	|:---	|
 | Build from docker file | docker build -t www:v4 -f [www.Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile) . |
 | Build from current directory | docker build -t www:v4 -f *.Dockerfile . |
@@ -61,4 +61,3 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 
 ```
---
