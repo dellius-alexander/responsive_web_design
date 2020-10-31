@@ -6,8 +6,7 @@
 ## Website Demo URL: 
 
 
-![WWW]
-(https://dellius-alexander.github.io/responsive_web_design/)
+![WWW](https://dellius-alexander.github.io/responsive_web_design/)
 
 ---
 ---
