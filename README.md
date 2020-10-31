@@ -56,24 +56,10 @@ CMD [ "nginx", "-g", "daemon off;" ]
 ```
 ---
 
-
-
-<!-- blank line -->
-<figure class="img">
-			<script src="scripts/jquery-3.3.1.min.js"></script> 
-			<script src="scripts/jquery.backstretch.js"></script> 
-  <iframe src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png" frameborder="0" allowfullscreen="false"> </iframe>
-		<!-- JS -->
-		<script src="scripts/jquery-3.3.1.min.js"></script> 
-		<script src="scripts/jquery.fancybox.min.js"></script>	
-</figure>
-<!-- blank line -->
-
-
-.... <!-- post content -->
+<!-- post content -->
 
 <div class="iframe_container">
   <iframe width="560" height="315" src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png" frameborder="0" allowfullscreen></iframe>
 </div>
 
-.... <!-- post content -->
+<!-- post content -->
