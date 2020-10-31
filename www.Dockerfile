@@ -11,6 +11,9 @@ RUN echo "Successfully updated and upgrade"
 # RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
 # RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
 #
+#####################################################################
+# Copy from current repo
+#
 # copy files to build image
 COPY [ "./docs/", "/usr/share/nginx/html" ]
 RUN ls -lia /usr/share/nginx/html

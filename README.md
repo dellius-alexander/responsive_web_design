@@ -37,10 +37,13 @@ RUN apt update && apt-get -y upgrade \
 RUN uname -a
 RUN echo "Successfully updated and upgrade"
 #####################################################################
-# Download from Repo...(git) [Uncomment to RUN git clone]
+# Download from Repo...(git)
 #
 # RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
 # RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
+#
+#####################################################################
+# Copy from current repo
 #
 # copy files to build image
 COPY [ "./docs/", "/usr/share/nginx/html" ]
