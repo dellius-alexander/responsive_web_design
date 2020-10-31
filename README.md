@@ -60,11 +60,3 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 ```
 ---
-
-... <!-- post content -->
-
-<div class="iframe_container">
-  <iframe src="https://dellius-alexander.github.io/responsive_web_design/" frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
-</div>
-
-... <!-- post content -->
