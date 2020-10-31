@@ -5,7 +5,9 @@ RUN apt update && apt-get -y upgrade \
 && apt install -y git
 RUN uname -a
 RUN echo "Successfully updated and upgrade"
-
+#####################################################################
+# Download from Repo...(git)
+#
 # RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
 # RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
 #

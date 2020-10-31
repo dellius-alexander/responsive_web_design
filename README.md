@@ -11,7 +11,7 @@ https://dellius-alexander.github.io/responsive_web_design/
 ---
 | **Description** | **Command**|
 |:---	|:---	|
-| Build from docker file | docker build -t www:v4 -f [www.Dockerfile](www.Dockerfile) . |
+| Build from docker file | docker build -t www:v4 -f [www.Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile) . |
 | Build from current directory | docker build -t www:v4 -f *.Dockerfile . |
 |  |  |
 ---
@@ -22,7 +22,7 @@ https://dellius-alexander.github.io/responsive_web_design/
 ### Webserver build configuration
 ---
 
-```bash [![Dockerfile](www.Dockerfile)*www.Dockerfile*][https://github.com/dellius-alexander/responsive_web_design/blob/master/dockerfile]
+```bash ![Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile)
 
 # escape=\ (backslash)
 #
@@ -31,17 +31,16 @@ RUN apt update && apt-get -y upgrade \
 && apt install -y git
 RUN uname -a
 RUN echo "Successfully updated and upgrade"
-
 #####################################################################
-# Download from Repo...(git)
+# Download from Repo...(git) [Uncomment to RUN git clone]
 #
-RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
-RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
+# RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
+# RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
 #
 # copy files to build image
-# COPY [ "./docs/", "/usr/share/nginx/html" ]
-#
+COPY [ "./docs/", "/usr/share/nginx/html" ]
 RUN ls -lia /usr/share/nginx/html
+#
 RUN echo "Project Successfully copied to working directory..."
 RUN sleep 2
 #
@@ -56,4 +55,4 @@ CMD [ "nginx", "-g", "daemon off;" ]
 ```
 ---
 
-[ [! LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png) ]
+![LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png)
