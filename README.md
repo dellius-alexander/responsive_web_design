@@ -60,28 +60,10 @@ CMD [ "nginx", "-g", "daemon off;" ]
 ```
 ---
 
-
-<div class="iframe">
-    <style>
-        .iframe_container {
-        	position: relative;
-        	padding-bottom: 56.25%; /* 16:9 - this is responsive by adjusting the hight according to the width! */
-        	padding-top: 25px;
-        	height: 0;
-        }    
-        .iframe_container iframe {
-        	position: absolute;
-        	top: 0;
-        	left: 0;
-        	width: 100%;
-        	height: 100%;
-        }
-    </style>
-    .... <!-- post content -->
+.... <!-- post content -->
     
     <div class="iframe_container">
-      <iframe src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/media/Sav_s01_rem_Br10.mp4 frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
+      <iframe width="560" height="315" src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/media/Sav_s01_rem_Br10.mp4 frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
     </div>
 
 .... <!-- post content -->
-</div>
