@@ -11,7 +11,7 @@ https://dellius-alexander.github.io/responsive_web_design/
 ---
 | **Description** | **Command**|
 |:---	|:---	|
-| Build from docker file | docker build -t www:v4 -f www.Dockerfile . |
+| Build from docker file | docker build -t www:v4 -f [www.Dockerfile](www.Dockerfile) . |
 | Build from current directory | docker build -t www:v4 -f *.Dockerfile . |
 |  |  |
 ---
@@ -56,3 +56,4 @@ CMD [ "nginx", "-g", "daemon off;" ]
 ```
 ---
 
+[ [! LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png) ]
