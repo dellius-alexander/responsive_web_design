@@ -59,11 +59,3 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 ```
 ---
-
-.... <!-- post content -->
-    
-    <div class="iframe_container">
-      <iframe width="560" height="315" src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/media/Sav_s01_rem_Br10.mp4 frameborder="0" allowfullscreen="allowfullscreen"> </iframe>
-    </div>
-
-.... <!-- post content -->
