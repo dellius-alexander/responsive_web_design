@@ -56,10 +56,3 @@ CMD [ "nginx", "-g", "daemon off;" ]
 ```
 ---
 
-<!-- post content -->
-
-<div class="iframe_container">
-  <iframe width="560" height="315" src="https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<!-- post content -->
