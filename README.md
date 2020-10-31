@@ -1,5 +1,5 @@
 
-![LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png)
+[![LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png)(https://github.com/dellius-alexander/responsive_web_design)]
 
 # responsive_web_design
 
