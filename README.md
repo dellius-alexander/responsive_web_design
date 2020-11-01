@@ -6,7 +6,7 @@
 ## Website Demo URL: 
 
 
-[DEMO](https://dellius-alexander.github.io/responsive_web_design/docs/index.html)
+![DEMO](https://dellius-alexander.github.io/responsive_web_design/)
 
 ---
 ---
@@ -27,7 +27,7 @@
 ### Webserver build configuration
 ---
 
-```bash ![Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile)
+```bash
 
 # escape=\ (backslash)
 #
@@ -39,8 +39,9 @@ RUN echo "Successfully updated and upgrade"
 #####################################################################
 # Download from Repo...(git)
 #
-# RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
-# RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
+# RUN git clone https://github.com/user.name/repository_name.git 
+# Move your updated files and recursively overwrite
+# RUN mv -r /repository_name/*  /usr/share/nginx/html
 #
 #####################################################################
 # Copy from current repo
