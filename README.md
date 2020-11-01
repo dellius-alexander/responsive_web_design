@@ -9,20 +9,19 @@
 [DEMO](https://dellius-alexander.github.io/responsive_web_design/)
 
 <!-- Search box Begin -->
-
+<style>
+    #demo_box {
+        height:100px;
+        width: 100%;
+        line-height:100px;
+    }    
+    #container demo-iframe {
+        vertical-align:middle;
+        max-height:100%;
+    }
+</style>
 
 <div id="demo-box">
-    <style>
-        #demo_box {
-            height:100px;
-            width: 100%;
-            line-height:100px;
-        }    
-        #container demo-iframe {
-            vertical-align:middle;
-            max-height:100%;
-        }
-    </style>
     <iframe id="demo-iframe" title="Hyfi Solutions" src="https://dellius-alexander.github.io/responsive_web_design/" width="80%" height="200" scrolling="no" sandbox>
     </iframe>
 </div>
