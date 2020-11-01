@@ -7,7 +7,7 @@
 
 <!-- Demo Box -->
 
-[![DEMO](docs\images\homepage.png)](https://dellius-alexander.github.io/responsive_web_design/)
+[![](docs/images/homepage.png)](https://dellius-alexander.github.io/responsive_web_design/)
 
 <!-- Demo Box -->
 
