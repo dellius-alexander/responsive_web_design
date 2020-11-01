@@ -8,8 +8,10 @@ RUN echo "Successfully updated and upgrade"
 #####################################################################
 # Download from Repo...(git)
 #
-# RUN git clone https://github.com/dellius-alexander/responsive_web_design.git 
-# RUN mv -r /responsive_web_design/*  /usr/share/nginx/html
+# RUN git clone https://github.com/dellius-alexander/responsive_web_design.git
+# RUN cp -r responsive_web_design/docs/*   /usr/share/nginx/html
+# # Clean up our image
+# RUN rm -rf responsive_web_design
 #
 #####################################################################
 # Copy from current repo

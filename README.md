@@ -43,8 +43,10 @@ RUN echo "Successfully updated and upgrade"
 # Download from Repo...(git)
 #
 # RUN git clone https://github.com/user.name/repository_name.git 
-# Move your updated files and recursively overwrite
-# RUN mv -r /repository_name/*  /usr/share/nginx/html
+# Copy your repo files and recursively overwrite target directory
+# RUN cp -r repository_name/docs/*   /usr/share/nginx/html
+# # Clean up our image
+# RUN rm -rf repository_name
 #
 #####################################################################
 # Copy from current repo
