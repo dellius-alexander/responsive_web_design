@@ -5,29 +5,11 @@
 
 ## Website Demo URL: 
 
+<!-- Demo Box -->
 
-[DEMO](https://dellius-alexander.github.io/responsive_web_design/)
+[![DEMO](docs\images\homepage.png)](https://dellius-alexander.github.io/responsive_web_design/)
 
-<!-- Search box Begin -->
-<style>
-    #demo_box {
-        height:100px;
-        width: 100%;
-        line-height:100px;
-    }    
-    #container demo-iframe {
-        vertical-align:middle;
-        max-height:100%;
-    }
-</style>
-
-<div id="demo-box">
-    <iframe id="demo-iframe" title="Hyfi Solutions" src="https://dellius-alexander.github.io/responsive_web_design/" width="80%" height="200" scrolling="no" sandbox>
-    </iframe>
-</div>
-<!-- Search box End -->	
-
-
+<!-- Demo Box -->
 
 ---
 ---
