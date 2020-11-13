@@ -16,7 +16,6 @@
 
 ## Docker Build Command
 ---
----
 |  **Description** |  **Command**  |
 |:---	|:---	|
 | Build from docker file | docker build -t www:v4 -f [www.Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile) . |
@@ -24,7 +23,6 @@
 ---
 
 ## Dockerfile
----
 ---
 ### Webserver build configuration
 ---
