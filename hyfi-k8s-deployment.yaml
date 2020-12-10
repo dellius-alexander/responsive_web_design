@@ -28,7 +28,7 @@ spec:
       volumes:
       - name: hyfi-volume
         hostPath:
-          path: "./docs"
+          path: "docs"
           type: DirectoryOrCreate
       containers:
       - name: nginx-hyfi
