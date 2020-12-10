@@ -1,0 +1,76 @@
+# https://github.com/dellius-alexander/responsive_web_design.git
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hyfi-nginx
+    
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hyfi-deployment
+  namespace: hyfi-nginx
+  labels:
+    app: hyfi-nginx
+spec:
+  selector:
+    matchLabels:
+      app: hyfi-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hyfi-nginx
+    spec:
+      volumes: 
+      - name: hyfi-volume
+        hostPath:
+          path: "docs"
+          type: DirectoryOrCreate
+      containers:
+      - name: nginx-hyfi
+        image: dalexander2israel/nginx-hyfi:v1
+        imagePullPolicy: IfNotPresent
+        lifecycle:
+          preStop:
+            exec:
+              # Gracefully shutdown nginx
+              command:
+              - "/usr/sbin/nginx"
+              - "-s"
+              - "quit"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "3500m"
+        ports:
+        - containerPort: 80
+        volumeMounts: 
+        - mountPath: "/usr/share/nginx/html"
+          name: hyfi-volume 
+          readOnly: true
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyfi-service
+  namespace: hyfi-nginx
+  labels:
+    app: hyfi-nginx
+spec:
+  selector:
+    app: hyfi-nginx
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 32001
