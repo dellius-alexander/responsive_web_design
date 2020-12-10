@@ -25,10 +25,10 @@ spec:
       labels:
         app: hyfi-nginx
     spec:
-      volumes: 
+      volumes:
       - name: hyfi-volume
         hostPath:
-          path: "docs"
+          path: "./docs"
           type: DirectoryOrCreate
       containers:
       - name: nginx-hyfi
