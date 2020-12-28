@@ -4,36 +4,92 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: hyfi-nginx
+  name: hyfi
     
+---
+# https://v1-16.docs.kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#storageclass-v1-storage-k8s-io
+
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: hyfi-storage
+  namespace: hyfi
+provisioner: kubernetes.io/no-provisioner
+parameters:
+  type: local
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Retain
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: hyfi-pv
+  namespace: hyfi
+  labels:
+    type: local
+spec:
+  storageClassName: hyfi-storage
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/nfs/REPOS/responsive_web_design/docs/"
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hyfi-pvc
+  namespace: hyfi
+spec:
+  storageClassName: hyfi-storage
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      type: local
+
+
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-hyfi-deployment
-  namespace: hyfi-nginx
+  name: hyfi-deployment
+  namespace: hyfi
   labels:
-    app: hyfi-nginx
+    app: hyfi-webapp
 spec:
   selector:
     matchLabels:
-      app: hyfi-nginx
+      app: hyfi-webapp
   replicas: 1
   template:
     metadata:
       labels:
-        app: hyfi-nginx
+        app: hyfi-webapp
     spec:
       volumes:
-      - name: hyfi-volume
-        hostPath:
-          path: "/mnt/nfs/REPOS/responsive_web_design/docs/"
-          type: Directory
+      # - name: hyfi-volume
+      #   hostPath:
+      #     path: "/mnt/nfs/REPOS/responsive_web_design/docs/"
+      #     type: Directory
+      - name: hyfi-data-nfs
+        persistentVolumeClaim:
+            claimName: hyfi-pvc
       containers:
       - name: nginx-hyfi
         image: nginx:1.19.5
-        #image: dalexander2israel/nginx-hyfi:v1
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
@@ -46,7 +102,7 @@ spec:
         resources:
           requests:
             memory: "128Mi"
-            cpu: "150m"
+            cpu: "100m"
           limits:
             memory: "512Mi"
             cpu: "200m"
@@ -55,8 +111,11 @@ spec:
         securityContext:
           privileged: true
         volumeMounts: 
+        # - mountPath: "/usr/share/nginx/html"
+        #   name: hyfi-volume 
+        #   readOnly: true
         - mountPath: "/usr/share/nginx/html"
-          name: hyfi-volume 
+          name: hyfi-data-nfs
           readOnly: true
 
 ---
@@ -65,15 +124,34 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hyfi-service
-  namespace: hyfi-nginx
+  namespace: hyfi
   labels:
-    app: hyfi-nginx
+    app: hyfi-webapp
 spec:
   selector:
-    app: hyfi-nginx
+    app: hyfi-webapp
   type: NodePort
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
     nodePort: 32001
+    
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hyfi-autoscale
+  namespace: hyfi
+  labels:
+    app: hyfi-webapp
+spec:
+  maxReplicas: 2
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hyfi-deployment
+  targetCPUUtilizationPercentage: 25
