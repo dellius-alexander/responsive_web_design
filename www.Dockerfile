@@ -23,6 +23,7 @@ RUN ls -lia "/usr/share/nginx/html"
 RUN printf "\n\n"
 RUN sleep 2
 #
+#
 RUN echo "Project Successfully copied to working directory..."
 RUN sleep 2
 #
