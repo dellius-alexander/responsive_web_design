@@ -2,7 +2,7 @@ pipeline {
     agent { // Define the dockerfile parameters to build and run container
         dockerfile {
             filename 'www.Dockerfile'
-            label 'dalexander2israel/www_hyfi'
+            label 'master'
             registryUrl 'https://index.docker.io/v1/'
             registryCredentialsId '__DOCKER_REGISTRY_SECRETS__'
             args '-v ./docs:/usr/share/nginx/html'
