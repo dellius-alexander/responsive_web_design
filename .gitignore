@@ -1,4 +1,6 @@
 # remove files
 .scratch
+.notes
 
 # remove directories
+.vscode/
