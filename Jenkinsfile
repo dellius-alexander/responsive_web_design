@@ -3,14 +3,14 @@ pipeline {
         dockerfile {
             filename 'www.Dockerfile'
             label 'master'
-            registryUrl 'https://index.docker.io/v1/'
-            registryCredentialsId '__DOCKER_REGISTRY_SECRETS__'
+            // registryUrl 'https://index.docker.io/v1/'
+            // registryCredentialsId '__DOCKER_REGISTRY_SECRETS__'
             args '-v ./docs:/usr/share/nginx/html'
         }
     }
 
     stages{
-        stage('Validate Repo Pressence') {
+        stage('Test') {
             steps {
                 echo 'Validating Responsive Web Design Repo...'
                 sh 'ls -al /usr/share/nginx/html | grep -i "index.html"'
