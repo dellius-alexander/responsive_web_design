@@ -1,3 +1,4 @@
+// This Jenkinsfile defines the dockerfile that will be used to build an image, that will run as a container in the "stages" to test if our webservice files were copied into our image.
 pipeline {
     agent { // Define the dockerfile parameters to build and run container
         dockerfile {
@@ -5,7 +6,6 @@ pipeline {
             label 'master'
             registryUrl 'https://index.docker.io/v1/'
             registryCredentialsId 'Docker_Hub_Credentials'
-            args '-t dalexander2israel/www_hyfi'
         }
     }
     stages{
