@@ -19,6 +19,7 @@ RUN echo "Successfully updated and upgrade"
 # copy files to build image
 COPY [ "./docs/", "/usr/share/nginx/html" ]
 RUN ls -lia /usr/share/nginx/html
+RUN sleep 2
 #
 RUN echo "Project Successfully copied to working directory..."
 RUN sleep 2
