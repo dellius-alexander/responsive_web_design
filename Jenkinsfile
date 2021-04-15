@@ -10,12 +10,11 @@ pipeline {
     stages{
         stage('Test') { // Checking container for presence of copied files
             steps {
-                sh '''
-                if [ $(ls -lia /usr/share/nginx/html | grep -ic "index") -eq 0 ]; then
+                sh '''if [ $(ls -lia /usr/share/nginx/html | grep -ic "index") -eq 0 ]; then
                 echo "Project files failed to be copied to image...";
-                exit 1
+                exit 1;
                 else
-                echo "Project files successfully copied to image...
+                echo "Project files successfully copied to image...";
                 fi
 
                 '''
