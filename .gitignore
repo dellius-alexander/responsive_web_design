@@ -1,7 +1,8 @@
-# Removed files
-*.scratch
-.Jenkinsfile
+
+# remove files
+.scratch
+.notes
 notes.md
-# Remove directories
-.vscode
-.idea
+.Jenkinsfile
+# remove directories
+.vscode/
