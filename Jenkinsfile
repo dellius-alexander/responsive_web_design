@@ -16,6 +16,7 @@ pipeline {
                 exit 1;
                 else
                 echo "Project files successfully copied to image...";
+                ls -lia /usr/share/nginx/html;
                 fi;
                 '''
             }
