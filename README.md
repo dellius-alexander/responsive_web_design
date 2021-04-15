@@ -1,7 +1,7 @@
 
 [![LOGO](https://github.com/dellius-alexander/responsive_web_design/blob/master/docs/images/logo.png)](https://github.com/dellius-alexander/responsive_web_design)
 
-# responsive_web_design
+# Responsive Web Design
 
 ## Website Demo URL: 
 
