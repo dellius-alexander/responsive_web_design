@@ -7,6 +7,13 @@ pipeline {
             registryCredentialsId 'Docker_Hub_Credentials'
         }
     }
+    stages{
+        stage('Test') {
+            steps {
+                sh 'ls -al /usr/share/nginx/html | grep -i "index.html"'
+            }          
+        }
+    }
 }
 
 
