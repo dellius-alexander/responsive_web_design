@@ -18,6 +18,7 @@ RUN echo "Successfully updated and upgrade"
 #
 # copy files to build image
 COPY [ "./docs/", "/usr/share/nginx/html" ]
+RUN sleep 2
 RUN ls -lia /usr/share/nginx/html
 RUN sleep 2
 #
