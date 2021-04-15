@@ -5,6 +5,7 @@ pipeline {
             label 'master'
             registryUrl 'https://index.docker.io/v1/'
             registryCredentialsId 'Docker_Hub_Credentials'
+            args '-t dalexander2israel/www_hyfi'
         }
     }
     stages{
