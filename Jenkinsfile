@@ -4,7 +4,7 @@ pipeline {
             filename 'www.Dockerfile'
             label 'master'
             registryUrl 'https://index.docker.io/v1/'
-            registryCredentialsId '__DOCKER_REGISTRY_SECRETS__'
+            registryCredentialsId 'dalexander2israel/www_hyfi'
             // args '-v ./docs:/usr/share/nginx/html'
         }
     }
