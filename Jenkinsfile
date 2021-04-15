@@ -4,7 +4,7 @@ pipeline {
             filename 'www.Dockerfile'
             label 'master'
             registryUrl 'https://index.docker.io/v1/'
-            registryCredentialsId 'myPredefinedCredentialsInJenkins'
+            registryCredentialsId 'Docker_Hub_Credentials'
             // args '-v ./docs:/usr/share/nginx/html'
         }
     }
