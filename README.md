@@ -3,7 +3,11 @@
 
 # responsive_web_design
 
+<<<<<<< HEAD
 ## Website Demo URL
+=======
+## Website Demo URL: 
+>>>>>>> 78b9adb8af0395ee097aa645bec925f8995a18cf
 
 <!-- Demo Box -->
 

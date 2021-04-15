@@ -1,6 +1,7 @@
 # Removed files
 *.scratch
-
+.Jenkinsfile
+notes.md
 # Remove directories
 .vscode
 .idea
