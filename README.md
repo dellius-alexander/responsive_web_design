@@ -3,7 +3,11 @@
 
 # responsive_web_design
 
+<<<<<<< HEAD
+## Website Demo URL
+=======
 ## Website Demo URL: 
+>>>>>>> 78b9adb8af0395ee097aa645bec925f8995a18cf
 
 <!-- Demo Box -->
 
@@ -16,16 +20,13 @@
 
 ## Docker Build Command
 ---
----
 |  **Description** |  **Command**  |
 |:---	|:---	|
 | Build from docker file | docker build -t www:v4 -f [www.Dockerfile](https://github.com/dellius-alexander/responsive_web_design/blob/master/www.Dockerfile) . |
-| Build from current directory | docker build -t www:v4 -f *.Dockerfile . |
 |  |  |
 ---
 
 ## Dockerfile
----
 ---
 ### Webserver build configuration
 ---
