@@ -4,24 +4,9 @@ pipeline {
             filename 'www.Dockerfile'
             label 'master'
             registryUrl 'https://index.docker.io/v1/'
-            registryCredentialsId 'dalexander2israel'
+            registryCredentialsId 'myPredefinedCredentialsInJenkins'
             // args '-v ./docs:/usr/share/nginx/html'
         }
-    }
-
-    stages{
-        stage('Test') {
-            steps {
-                echo 'Validating Responsive Web Design Repo...'
-                sh 'ls -al /usr/share/nginx/html | grep -i "index.html"'
-            }          
-        }
-        // stage('Build Hyfi Web App Image') {
-        //     steps {
-        //         echo 'Building image...'
-        //         dockerfile
-        //     }
-        // }
     }
 }
 
