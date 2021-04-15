@@ -15,8 +15,7 @@ pipeline {
                 exit 1;
                 else
                 echo "Project files successfully copied to image...";
-                fi
-
+                fi;
                 '''
             }
         }
