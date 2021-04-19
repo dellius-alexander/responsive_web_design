@@ -48,18 +48,15 @@ pipeline{
             } // End of Steps
         } // End of Build Test images stage()
         stage('Testing image hyfi_webserver:v1.19.3'){
-                agent {
-                    docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
-                }
-                stages{
-                    stage('Testing...Begin...'){
-                        steps{
-                            sh '''
-                            ls -lia /usr/share/nginx/html
-                            '''
-                        }
-                    }
-                }
+            agent {
+                docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
+            }
+            steps{
+                sh '''
+                ls -lia /usr/share/nginx/html
+                '''
+            }
+            
         }
     } // End of Main stages
 }
