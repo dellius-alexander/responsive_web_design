@@ -44,7 +44,6 @@ pipeline{
                         env.BUILD_RESULTS="failure"
                         sh '''
                         echo "Intermediate build ${BUILD_RESULTS}......";
-                        
                         '''
                         throw e
                     }
@@ -62,10 +61,12 @@ pipeline{
                         script{
                             try{
                                 sh '''
-                                ls -lia /usr/share/nginx/html
+                                ls -lia /usr/share/nginx/html;
                                 '''
                                 env.BUILD_RESULTS="success"
-
+                                sh '''
+                                echo "Intermediate build ${BUILD_RESULTS}......";
+                                '''
                             }
                             catch(e){
                                 env.BUILD_RESULTS="failure"
@@ -115,8 +116,7 @@ pipeline{
         } // End of stage('Parallel build stage...')
         stage('Deploy Webservice to Cloud...'){
             when {
-                branch 'master'
-                environment name: 'BUILD_RESULTS', value: 'success'
+                environment name: 'BUILD_RESULTS', value: 'failure'
             }
             steps('Deploy Webservice to Cloud...'){
                 script{
@@ -125,16 +125,16 @@ pipeline{
                         git clone https://github.com/dellius-alexander/responsive_web_design.git;
                         cd responsive_web_design;
                         kubectl apply -f hyfi-k8s-deployment.yaml;
-                        '''
+                        '''                        
                         env.BUILD_RESULTS="success"
                         sh '''
                         echo "Intermediate build ${BUILD_RESULTS}......";
                         '''
                     }
                     catch(e){
+                        env.BUILD_RESULTS="failure"
                         sh '''
-                        echo "Intermediate build failure......";
-                        export BUILD_RESULTS="failure";
+                        echo "Intermediate build ${BUILD_RESULTS}......";
                         '''
                         throw e
                     }
@@ -143,7 +143,7 @@ pipeline{
             } // Enc of steps()          
         } // End of Deploy to Prod stage()
     } // End of Main stages
-} // End of Pipeline
+}
 
 // // This Jenkinsfile defines the dockerfile that will be used to build an image, that will run as a container in the "stages" to test if our webservice files were copied into our image.
 // pipeline {
