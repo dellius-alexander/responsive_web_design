@@ -147,8 +147,16 @@ pipeline{
                         -o merge_request.create \
                         -o merge_request.target=master \
                         -o merge_request.title="MR 101" \
-                        -o merge_request.description="Added new test feature 101"
+                        -o merge_request.description="Added new test feature 101";
+                        export BUILD_RESULTS="success";
                         '''
+                    }
+                    catch(e){
+                                                sh '''
+                        echo "Intermediate build failure......";
+                        export BUILD_RESULTS="failure";
+                        '''
+                        throw e
                     }
                 }
             }
