@@ -143,7 +143,11 @@ pipeline{
                     try{
                         sh '''
                         git pull origin ${GIT_BRANCH}
-                        git 
+                        git push \
+                        -o merge_request.create \
+                        -o merge_request.target=master \
+                        -o merge_request.title="MR 101" \
+                        -o merge_request.description="Added new test feature 101"
                         '''
                     }
                 }
