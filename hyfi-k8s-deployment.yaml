@@ -86,7 +86,7 @@ spec:
         persistentVolumeClaim:
             claimName: hyfi-pvc
       containers:
-      - name: hyfi_webserver
+      - name: hyfi-webserver
         image: registry.dellius.app/hyfi-webserver:v1.19.3
         imagePullPolicy: IfNotPresent
         lifecycle:
