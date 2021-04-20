@@ -48,7 +48,7 @@ pipeline{
                     }
                     cleanWs() // clean up workspace post-Build
                 } // End of script block
-            } // End of Steps
+            } // Enc of steps()
         } // End of Build Test images stage()
         stage('Testing image hyfi_webserver:v1.19.3'){ // Testing stage()
             agent {
@@ -70,8 +70,8 @@ pipeline{
                         throw e
                     }
                     cleanWs() // clean up workspace post-Testing
-                }
-            }
+                } // End of script block
+            } // Enc of steps()
         } // End of Testing stage()
         stage('Deploy Webservice to Cloud...'){
             when {
@@ -95,8 +95,8 @@ pipeline{
                         throw e
                     }
                     cleanWs() // clean up workspace post-Deploy
-                }
-            }            
+                } // End of script block
+            } // Enc of steps()          
         } // End of Deploy to Prod stage()
     } // End of Main stages
 }
