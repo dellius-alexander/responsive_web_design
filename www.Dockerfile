@@ -17,7 +17,8 @@ RUN echo "Successfully updated and upgrade"
 # Copy from current repo
 #
 # copy files to build image
-COPY [ "./docs/", "/usr/share/nginx/html" ]
+COPY [ "${PWD}/docs/", "/usr/share/nginx/html" ]
+RUN sleep 2
 RUN ls -lia /usr/share/nginx/html
 RUN sleep 2
 #

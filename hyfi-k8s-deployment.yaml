@@ -10,7 +10,6 @@ metadata:
 # https://v1-16.docs.kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource
 # https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#storageclass-v1-storage-k8s-io
 
-
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -59,7 +58,6 @@ spec:
     matchLabels:
       type: local
 
-
 ---
 
 apiVersion: apps/v1
@@ -88,8 +86,8 @@ spec:
         persistentVolumeClaim:
             claimName: hyfi-pvc
       containers:
-      - name: nginx-hyfi
-        image: nginx:1.19.5
+      - name: hyfi-webserver
+        image: registry.dellius.app/hyfi-webserver:v1.19.3
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
