@@ -1,16 +1,19 @@
 pipeline{
     agent any
+    options {
+        ansiColor('xterm')
+    }
     environment {
         // DOCKER_CERT_PATH is automatically picked up by the Docker client
         // Usage: $DOCKER_CERT_PATH or $DOCKER_CERT_PATH_USR or $DOCKER_CERT_PATH_PSW
         DOCKER_CERT_PATH = credentials('PRIVATE_CNTR_REGISTRY')
-        BUILD_RESULTS="failure"
     }
     stages {
         stage('Build Webserver Image'){
             steps {
                 script {
                     // Define some variables
+                    env.BUILD_RESULTS="failure"
                     def www_image
                     def www_dockerfile
                     try{ // try and catch errors
@@ -34,14 +37,16 @@ pipeline{
                         // Push image to private container registry
                         sh '''
                         docker push registry.dellius.app/hyfi-webserver:v1.19.3;
-                        echo "Intermediate build success......;"
-                        export BUILD_RESULTS="success";
+                        '''
+                        env.BUILD_RESULTS="success"
+                        sh '''
+                        echo "Intermediate build ${BUILD_RESULTS}......";
                         '''
                     }
                     catch(e){
+                        env.BUILD_RESULTS="failure"
                         sh '''
-                        echo "Intermediate build failure......";
-                        export BUILD_RESULTS="failure";
+                        echo "Intermediate build ${BUILD_RESULTS}......";
                         '''
                         throw e
                     }
@@ -59,14 +64,17 @@ pipeline{
                         script{
                             try{
                                 sh '''
-                                ls -lia /usr/share/nginx/html
-                                export BUILD_RESULTS="success";
+                                ls -lia /usr/share/nginx/html;
+                                '''
+                                env.BUILD_RESULTS="success"
+                                sh '''
+                                echo "Intermediate build ${BUILD_RESULTS}......";
                                 '''
                             }
                             catch(e){
+                                env.BUILD_RESULTS="failure"
                                 sh '''
-                                echo "Intermediate build failure......";
-                                export BUILD_RESULTS="failure";
+                                echo "Intermediate build ${BUILD_RESULTS}......";
                                 '''
                                 throw e
                             }
@@ -91,15 +99,15 @@ pipeline{
                                 registry.dellius.app/cypress/custom:v5.4.0  \
                                 run --headless --browser firefox --spec "/home/cypress/e2e/cypress/integration/*"
                                 '''
+                                env.BUILD_RESULTS="success"
                                 sh '''
-                                echo "Tests passed successfully......";
-                                export BUILD_RESULTS="success";
+                                echo "Intermediate build ${BUILD_RESULTS}......";
                                 '''
                             }
                             catch(e){
+                                env.BUILD_RESULTS="failure"
                                 sh '''
-                                echo "Intermediate build failure......";
-                                export BUILD_RESULTS="failure";
+                                echo "Intermediate build ${BUILD_RESULTS}......";
                                 '''
                                 throw e
                             }
@@ -111,7 +119,8 @@ pipeline{
         } // End of stage('Parallel build stage...')
         stage('Deploy Webservice to Cloud...'){
             when {
-                environment name: 'BUILD_RESULTS', value: 'failure'
+                branch 'master'
+                environment name: 'BUILD_RESULTS', value: 'success'
             }
             steps('Deploy Webservice to Cloud...'){
                 script{
@@ -120,13 +129,16 @@ pipeline{
                         git clone https://github.com/dellius-alexander/responsive_web_design.git;
                         cd responsive_web_design;
                         kubectl apply -f hyfi-k8s-deployment.yaml;
-                        export BUILD_RESULTS="success";
                         '''                        
+                        env.BUILD_RESULTS="success"
+                        sh '''
+                        echo "Intermediate build ${BUILD_RESULTS}......";
+                        '''
                     }
                     catch(e){
+                        env.BUILD_RESULTS="failure"
                         sh '''
-                        echo "Intermediate build failure......";
-                        export BUILD_RESULTS="failure";
+                        echo "Intermediate build ${BUILD_RESULTS}......";
                         '''
                         throw e
                     }
