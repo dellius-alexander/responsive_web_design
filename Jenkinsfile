@@ -55,7 +55,7 @@ pipeline{
                 docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
             }
             steps{
-                script {
+                script{
                     try{
                         sh '''
                         ls -lia /usr/share/nginx/html
@@ -68,7 +68,7 @@ pipeline{
                         export BUILD_RESULTS="failure";
                         '''
                         throw e
-                    }  
+                    }
                     cleanWs() // clean up workspace post-Testing
                 }
             }
