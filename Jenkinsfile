@@ -50,63 +50,65 @@ pipeline{
                 } // End of script block
             } // Enc of steps()
         } // End of Build Test images stage()
-        parallel { // Parallel build stage        
-            stage('Testing image hyfi-webserver:v1.19.3'){ // Testing stage()
-                agent {
-                    docker { image 'registry.dellius.app/hyfi-webserver:v1.19.3'}
-                }
-                steps{
-                    script{
-                        try{
-                            sh '''
-                            ls -lia /usr/share/nginx/html
-                            export BUILD_RESULTS="success";
-                            '''
-                        }
-                        catch(e){
-                            sh '''
-                            echo "Intermediate build failure......";
-                            export BUILD_RESULTS="failure";
-                            '''
-                            throw e
-                        }
-                        cleanWs() // clean up workspace post-Testing
-                    } // End of script block
-                } // Enc of steps()
-            } // End of Testing stage()
-            stage('Test webservice image with cypress/custom:v5.4.0'){ // Testing stage()
-                steps('Testing Responsive Web Design Webserver'){
-                    script{
-                        try{
-                            sh '''
-                            docker run --cap-add=sys_nice \
-                            --ulimit rtprio=99 \
-                            --memory=1024m \
-                            -v ${PWD}/cypress_tests/:/home/cypress/e2e/cypress/integration/cypress_tests \
-                            -v ${PWD}/video:/home/cypress/e2e/cypress/videos/ \
-                            -e DEBUG='' \
-                            -e PAGELOADTIMEOUT=60000 \
-                            -e CYPRESS_RECORD_KEY="U2FyYWlAMjAwOQ==" \
-                            -w /home/cypress/e2e --entrypoint=cypress \
-                            registry.dellius.app/cypress/custom:v5.4.0  \
-                            run --headless --browser firefox --spec "/home/cypress/e2e/cypress/integration/projectplan_sizing2.spec.js"
-                            '''
-                            sh '''
-                            echo "Tests passed successfully......";
-                            export BUILD_RESULTS="success";
-                            '''
-                        }
-                        catch(e){
-                            sh '''
-                            echo "Intermediate build failure......";
-                            export BUILD_RESULTS="failure";
-                            '''
-                            throw e
-                        }
-                        cleanWs() // clean up workspace post-Testing
-                    } // End of script block
-                } // Enc of steps()
-            } // End of Testing stage()
+        parallel { // Parallel build stage
+            stages{
+                stage('Testing image hyfi-webserver:v1.19.3'){ // Testing stage()
+                    agent {
+                        docker { image 'registry.dellius.app/hyfi-webserver:v1.19.3'}
+                    }
+                    steps{
+                        script{
+                            try{
+                                sh '''
+                                ls -lia /usr/share/nginx/html
+                                export BUILD_RESULTS="success";
+                                '''
+                            }
+                            catch(e){
+                                sh '''
+                                echo "Intermediate build failure......";
+                                export BUILD_RESULTS="failure";
+                                '''
+                                throw e
+                            }
+                            cleanWs() // clean up workspace post-Testing
+                        } // End of script block
+                    } // Enc of steps()
+                } // End of Testing stage()
+                stage('Test webservice image with cypress/custom:v5.4.0'){ // Testing stage()
+                    steps('Testing Responsive Web Design Webserver'){
+                        script{
+                            try{
+                                sh '''
+                                docker run --cap-add=sys_nice \
+                                --ulimit rtprio=99 \
+                                --memory=1024m \
+                                -v ${PWD}/cypress_tests/:/home/cypress/e2e/cypress/integration/cypress_tests \
+                                -v ${PWD}/video:/home/cypress/e2e/cypress/videos/ \
+                                -e DEBUG='' \
+                                -e PAGELOADTIMEOUT=60000 \
+                                -e CYPRESS_RECORD_KEY="U2FyYWlAMjAwOQ==" \
+                                -w /home/cypress/e2e --entrypoint=cypress \
+                                registry.dellius.app/cypress/custom:v5.4.0  \
+                                run --headless --browser firefox --spec "/home/cypress/e2e/cypress/integration/projectplan_sizing2.spec.js"
+                                '''
+                                sh '''
+                                echo "Tests passed successfully......";
+                                export BUILD_RESULTS="success";
+                                '''
+                            }
+                            catch(e){
+                                sh '''
+                                echo "Intermediate build failure......";
+                                export BUILD_RESULTS="failure";
+                                '''
+                                throw e
+                            }
+                            cleanWs() // clean up workspace post-Testing
+                        } // End of script block
+                    } // Enc of steps()
+                } // End of Testing stage()
+            }
         } // End of parallel
         stage('Deploy Webservice to Cloud...'){
             when {
