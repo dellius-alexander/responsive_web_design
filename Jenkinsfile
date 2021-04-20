@@ -5,6 +5,7 @@ pipeline{
         // DOCKER_CERT_PATH is automatically picked up by the Docker client
         // Usage: $DOCKER_CERT_PATH or $DOCKER_CERT_PATH_USR or $DOCKER_CERT_PATH_PSW
         DOCKER_CERT_PATH = credentials('PRIVATE_CNTR_REGISTRY')
+        BUILD_RESULTS="failure"
     }
     stages {
         stage('Build Webserver Image'){
@@ -47,7 +48,7 @@ pipeline{
                 } // End of script block
             } // End of Steps
         } // End of Build Test images stage()
-        stage('Testing image hyfi_webserver:v1.19.3'){
+        stage('Testing image hyfi_webserver:v1.19.3'){ // Testing stage()
             agent {
                 docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
             }
@@ -56,8 +57,29 @@ pipeline{
                 ls -lia /usr/share/nginx/html
                 '''
             }
-            
-        }
+        } // End of Testing stage()
+        stage('Deploy Webservice to Prod...'){
+            when {
+                environment name: 'BUILD_RESULTS', value: 'failure'
+            }
+            steps('Deploy Webservice to Cloud...'){
+                script{
+                    try{
+                        sh '''
+                        kubectl apply -f hyfi-k8s-deployment.yaml;
+                        '''                        
+                    }
+                    catch(e){
+                        sh '''
+                        echo "Intermediate build failure......";
+                        export BUILD_RESULTS="failure";
+                        '''
+                        throw e
+                    }
+                }
+            }
+            cleanWs()
+        } // End of Deploy to Prod stage()
     } // End of Main stages
 }
 

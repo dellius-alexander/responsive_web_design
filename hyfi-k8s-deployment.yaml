@@ -88,8 +88,8 @@ spec:
         persistentVolumeClaim:
             claimName: hyfi-pvc
       containers:
-      - name: nginx-hyfi
-        image: nginx:1.19.5
+      - name: hyfi_webserver
+        image: registry.dellius.app/hyfi_webserver:v1.19.3
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
