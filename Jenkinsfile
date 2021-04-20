@@ -76,9 +76,10 @@ pipeline{
                         '''
                         throw e
                     }
+                    cleanWs() // clean up workspace post-Deploy
                 }
             }
-            cleanWs()
+            
         } // End of Deploy to Prod stage()
     } // End of Main stages
 }
