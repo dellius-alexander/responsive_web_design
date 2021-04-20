@@ -87,7 +87,7 @@ spec:
             claimName: hyfi-pvc
       containers:
       - name: hyfi_webserver
-        image: registry.dellius.app/hyfi_webserver:v1.19.3
+        image: registry.dellius.app/hyfi-webserver:v1.19.3
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:

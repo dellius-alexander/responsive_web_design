@@ -22,7 +22,7 @@ pipeline{
                         '''
                         // name the dockerfile
                         www_dockerfile = 'www.Dockerfile'
-                        www_image = docker.build("hyfi_webserver:${env.BUILD_ID}", "-f ${www_dockerfile} .")
+                        www_image = docker.build("hyfi-webserver:${env.BUILD_ID}", "-f ${www_dockerfile} .")
                         // Login to private container registry:
                         //   - [ registry.dellius.app ]                  
                         sh '''
@@ -30,11 +30,11 @@ pipeline{
                         '''
                         // tag the webserver image to private repository
                         sh '''
-                        docker tag hyfi_webserver:${BUILD_ID} registry.dellius.app/hyfi_webserver:v1.19.3;
+                        docker tag hyfi-webserver:${BUILD_ID} registry.dellius.app/hyfi-webserver:v1.19.3;
                         '''
                         // Push image to private container registry
                         sh '''
-                        docker push registry.dellius.app/hyfi_webserver:v1.19.3;
+                        docker push registry.dellius.app/hyfi-webserver:v1.19.3;
                         echo "Intermediate build success......;"
                         export BUILD_RESULTS="success";
                         '''
@@ -50,9 +50,9 @@ pipeline{
                 } // End of script block
             } // Enc of steps()
         } // End of Build Test images stage()
-        stage('Testing image hyfi_webserver:v1.19.3'){ // Testing stage()
+        stage('Testing image hyfi-webserver:v1.19.3'){ // Testing stage()
             agent {
-                docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
+                docker { image 'registry.dellius.app/hyfi-webserver:v1.19.3'}
             }
             steps{
                 script{
