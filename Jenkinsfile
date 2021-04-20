@@ -50,8 +50,8 @@ pipeline{
                 } // End of script block
             } // Enc of steps()
         } // End of Build Test images stage()
-        parallel { // Parallel build stage
-            stages{
+        stage('Parallel Testing stages...'){
+            parallel { // Parallel build stage
                 stage('Testing image hyfi-webserver:v1.19.3'){ // Testing stage()
                     agent {
                         docker { image 'registry.dellius.app/hyfi-webserver:v1.19.3'}
@@ -107,9 +107,9 @@ pipeline{
                             cleanWs() // clean up workspace post-Testing
                         } // End of script block
                     } // Enc of steps()
-                } // End of Testing stage()
-            }
-        } // End of parallel
+                } // End of Testing stage()                
+            } // End of parallel
+        } // End of stage('Parallel build stage...')
         stage('Deploy Webservice to Cloud...'){
             when {
                 environment name: 'BUILD_RESULTS', value: 'failure'
