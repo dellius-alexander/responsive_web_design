@@ -119,7 +119,8 @@ pipeline{
         } // End of stage('Parallel build stage...')
         stage('Deploy Webservice to Cloud...'){
             when {
-                environment name: 'BUILD_RESULTS', value: 'failure'
+                branch 'master'
+                environment name: 'BUILD_RESULTS', value: 'success'
             }
             steps('Deploy Webservice to Cloud...'){
                 script{
