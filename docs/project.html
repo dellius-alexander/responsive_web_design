@@ -29,8 +29,6 @@
 					opacity: 1;
 					}
 	</style>
-
-	
 	
 
 
@@ -93,7 +91,7 @@
 			
 						
 			<!-- To send form data to email use mail to script(<form action="mailto:dellius.alexander@gmail.com" method="POST">).  Alternate way used to send data to web server uses the "GET or POST" in the "method" attribute and URL in the "action" attribute. -->
-			<form  autocomplete="on"><!-- Start Form -->
+			<form id="project_form"  autocomplete="on"><!-- Start Form -->
 				<label for="fName">First Name:</label>
 				<input type="text" id="fName" name="fName" class="input" required>
 				
@@ -195,7 +193,7 @@
 				<label for="details">Give us a detailed description of you needs:</label>
 				<textarea id="details" name="details" rows="10" cols="100" class="input"></textarea>		
 					
-				<input type="submit" id="submit" value="Submit" class="btn" onclick="tyAlert()">
+				<input type="submit" id="submit" value="Submit" class="btn">
 				
 				<input type="reset" id="reset" value="Reset" class="btn">
 				
