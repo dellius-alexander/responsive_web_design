@@ -36,15 +36,17 @@ pipeline{
                         sh '''
                         docker push registry.dellius.app/hyfi_webserver:v1.19.3;
                         echo "Intermediate build success......;"
+                        export BUILD_RESULTS="success";
                         '''
                     }
                     catch(e){
                         sh '''
                         echo "Intermediate build failure......";
+                        export BUILD_RESULTS="failure";
                         '''
                         throw e
                     }
-                    cleanWs() // clean up workspace post-build
+                    cleanWs() // clean up workspace post-Build
                 } // End of script block
             } // End of Steps
         } // End of Build Test images stage()
@@ -53,12 +55,25 @@ pipeline{
                 docker { image 'registry.dellius.app/hyfi_webserver:v1.19.3'}
             }
             steps{
-                sh '''
-                ls -lia /usr/share/nginx/html
-                '''
+                script {
+                    try{
+                        sh '''
+                        ls -lia /usr/share/nginx/html
+                        export BUILD_RESULTS="success";
+                        '''
+                    }
+                    catch(e){
+                        sh '''
+                        echo "Intermediate build failure......";
+                        export BUILD_RESULTS="failure";
+                        '''
+                        throw e
+                    }  
+                    cleanWs() // clean up workspace post-Testing
+                }
             }
         } // End of Testing stage()
-        stage('Deploy Webservice to Prod...'){
+        stage('Deploy Webservice to Cloud...'){
             when {
                 environment name: 'BUILD_RESULTS', value: 'failure'
             }
@@ -66,7 +81,10 @@ pipeline{
                 script{
                     try{
                         sh '''
+                        git clone https://github.com/dellius-alexander/responsive_web_design.git;
+                        cd responsive_web_design;
                         kubectl apply -f hyfi-k8s-deployment.yaml;
+                        export BUILD_RESULTS="success";
                         '''                        
                     }
                     catch(e){
@@ -78,8 +96,7 @@ pipeline{
                     }
                     cleanWs() // clean up workspace post-Deploy
                 }
-            }
-            
+            }            
         } // End of Deploy to Prod stage()
     } // End of Main stages
 }
