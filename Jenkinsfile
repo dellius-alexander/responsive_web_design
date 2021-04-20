@@ -134,6 +134,21 @@ pipeline{
                 } // End of script block
             } // Enc of steps()          
         } // End of Deploy to Prod stage()
+        stage('Merge successful commits...'){
+            when{
+                environment name: 'BUILD_RESULTS', value: 'failure'
+            }
+            steps{
+                script{
+                    try{
+                        sh '''
+                        git pull origin ${GIT_BRANCH}
+                        git 
+                        '''
+                    }
+                }
+            }
+        }
     } // End of Main stages
 }
 
