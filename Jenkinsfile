@@ -44,6 +44,7 @@ pipeline{
                         env.BUILD_RESULTS="failure"
                         sh '''
                         echo "Intermediate build ${BUILD_RESULTS}......";
+                        
                         '''
                         throw e
                     }
