@@ -19,7 +19,7 @@ provisioner: kubernetes.io/no-provisioner
 parameters:
   type: local
 volumeBindingMode: WaitForFirstConsumer
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 
 ---
 
