@@ -28,6 +28,7 @@ RUN sleep 2
 # Expose HTTP PORT
 EXPOSE 80
 RUN echo "Expose Port 80 inside container"
+RUN echo "Build Successful......"
 #
 # working directory
 WORKDIR /usr/share/nginx/html
