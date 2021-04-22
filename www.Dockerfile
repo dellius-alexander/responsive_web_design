@@ -1,8 +1,8 @@
 # escape=\
 #
 FROM  nginx:1.19.3
-RUN apt update && apt-get -y upgrade \
-&& apt install -y git
+RUN apt-get update && apt-get -y upgrade \
+&& apt-get install -y git
 RUN uname -a
 RUN echo "Successfully updated and upgrade"
 #####################################################################
@@ -27,6 +27,7 @@ RUN sleep 2
 #
 # Expose HTTP PORT
 EXPOSE 80
+RUN echo "Expose Port 80 inside container"
 #
 # working directory
 WORKDIR /usr/share/nginx/html
